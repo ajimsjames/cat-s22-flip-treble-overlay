@@ -19,7 +19,7 @@
 
     <!-- Navigation Bar:
          Cat S22 Flip has physical D-pad and Back/Home/Recent keys.
-         Disable software on-screen navigation bar. -->
+         Disable software on-screen navigation bar completely. -->
     <bool name="config_showNavigationBar">false</bool>
 
     <!-- Physical Keypad & D-Pad Navigation Tweaks -->
@@ -34,14 +34,29 @@
     <!-- Route volume keys directly via WindowManager -->
     <bool name="config_handleVolumeKeysInWindowManager">true</bool>
 
-    <!-- Display & Screen Metrics -->
+    <!-- Display & Screen Metrics for Compact 2.8" 480x640 Display -->
     <bool name="config_automatic_brightness_available">false</bool>
     <dimen name="rounded_corner_radius">0dp</dimen>
     <dimen name="rounded_corner_radius_top">0dp</dimen>
     <dimen name="rounded_corner_radius_bottom">0dp</dimen>
-    <dimen name="status_bar_height_portrait">24dp</dimen>
+    <!-- Proportional 20dp Status Bar (fits small screen without hogging height) -->
+    <dimen name="status_bar_height_portrait">20dp</dimen>
+    <dimen name="status_bar_height">20dp</dimen>
+    <dimen name="navigation_bar_height">0dp</dimen>
+    <dimen name="navigation_bar_height_landscape">0dp</dimen>
+    <dimen name="navigation_bar_frame_height">0dp</dimen>
 
     <!-- Force 60Hz display refresh rate -->
     <integer name="config_defaultRefreshRate">60</integer>
     <integer name="config_defaultPeakRefreshRate">60</integer>
+
+    <!-- Cellular, IMS & VoLTE Carrier Overrides:
+         Forces VoLTE / 4G Calling settings availability and registers IMS on boot -->
+    <bool name="config_carrier_volte_available">true</bool>
+    <bool name="config_carrier_volte_tty_supported">true</bool>
+    <bool name="config_carrier_wfc_ims_available">true</bool>
+    <bool name="config_device_volte_available">true</bool>
+    <bool name="config_device_vt_available">true</bool>
+    <bool name="config_device_wfc_ims_available">true</bool>
+    <bool name="config_dynamic_bind_ims">true</bool>
 </resources>
