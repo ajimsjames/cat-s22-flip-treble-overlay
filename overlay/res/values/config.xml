@@ -22,14 +22,20 @@
          Disable software on-screen navigation bar. -->
     <bool name="config_showNavigationBar">false</bool>
 
-    <!-- Keypad & Backlight -->
+    <!-- Physical Keypad & D-Pad Navigation Tweaks -->
+    <!-- Draw high-visibility focus highlight on active views for D-Pad/Tab navigation -->
+    <bool name="config_defaultFocusHighlightEnabled">true</bool>
+    <!-- Tell InputMethodManager physical keypad has permanent menu/navigation capabilities -->
+    <bool name="config_hasPermanentMenuKey">true</bool>
     <bool name="config_hasKeyboard">true</bool>
     <integer name="config_keyboardType">1</integer>
+    <!-- Play key sound click on physical keypad entry -->
+    <bool name="config_sendAudioWhenHardwareKeyboardUsed">true</bool>
+    <!-- Route volume keys directly via WindowManager -->
+    <bool name="config_handleVolumeKeysInWindowManager">true</bool>
 
-    <!-- Automatic Brightness -->
+    <!-- Display & Screen Metrics -->
     <bool name="config_automatic_brightness_available">false</bool>
-
-    <!-- Rounded Corners / Cutout -->
     <dimen name="rounded_corner_radius">0dp</dimen>
     <dimen name="rounded_corner_radius_top">0dp</dimen>
     <dimen name="rounded_corner_radius_bottom">0dp</dimen>
