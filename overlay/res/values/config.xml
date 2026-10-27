@@ -39,7 +39,7 @@
     <dimen name="rounded_corner_radius">0dp</dimen>
     <dimen name="rounded_corner_radius_top">0dp</dimen>
     <dimen name="rounded_corner_radius_bottom">0dp</dimen>
-    <!-- Proportional 20dp Status Bar (fits small screen without hogging height) -->
+    <!-- Proportional 20dp Status Bar -->
     <dimen name="status_bar_height_portrait">20dp</dimen>
     <dimen name="status_bar_height">20dp</dimen>
     <dimen name="navigation_bar_height">0dp</dimen>
@@ -59,4 +59,9 @@
     <bool name="config_device_vt_available">true</bool>
     <bool name="config_device_wfc_ims_available">true</bool>
     <bool name="config_dynamic_bind_ims">true</bool>
+
+    <!-- Audio Volume Steps:
+         Increased to 25/30 steps for granular speaker and earpiece control -->
+    <integer name="config_audio_vol_steps_call">25</integer>
+    <integer name="config_audio_vol_steps_music">30</integer>
 </resources>
