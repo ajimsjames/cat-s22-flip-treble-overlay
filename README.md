@@ -1,50 +1,65 @@
-# Cat S22 Flip Treble Framework Overlay
+# Cat S22 Flip Treble Overlays
 
-A production-grade Runtime Resource Overlay (RRO) specifically crafted for the **Cat S22 Flip** running modern Treble Generic System Images (GSIs) such as Android 14 and Android 15 (e.g. VoltageOS, LineageOS, PixelExperience).
+Targeted Runtime Resource Overlays (RRO) engineered specifically for the **Cat S22 Flip** (`armeabi-v7a`, Snapdragon 215 / QM215) running AOSP / Treble GSIs (e.g. VoltageOS / LineageOS Android 13, 14, 15).
 
-## Key Capabilities & Fixes
+---
 
-1. **Cellular IMS & VoLTE 4G Calling Persistence:**
-   - Forces the presence of VoLTE / 4G calling settings even across factory resets:
-     - `config_carrier_volte_available = true`
-     - `config_device_volte_available = true`
-     - `config_carrier_wfc_ims_available = true` (Wi-Fi Calling)
-     - `config_dynamic_bind_ims = true`
-   - Integrates with Qualcomm CAF IMS stack automatically without manual toggle requirements in Treble App.
+## 1. Included Overlays
 
-2. **2.8-Inch Display & UI Optimization:**
-   - **Eliminates On-Screen Navigation Bar:** Cat S22 Flip features physical hardware keypad buttons (Back, Home, App Switch). Disables software navbar (`config_showNavigationBar = false` and `navigation_bar_height = 0dp`), recovering over 70 vertical pixels across all apps.
-   - **Compact Status Bar:** Replaces oversized system status bars with a proportional `20dp` height that fits the small 480x640 display without eating 15-20% of the screen.
-   - **Corner Bounds:** Removes unnecessary artificial rounded display corner cutouts (`rounded_corner_radius = 0dp`).
+### A. Framework Overlay (`me.phh.treble.overlay.cats22flip`)
+- **Target:** `android`
+- **Carrier & IMS Overrides:**
+  - `config_carrier_volte_available = true`
+  - `config_carrier_vt_available = true`
+  - `config_carrier_wfc_ims_available = true`
+  - `config_device_volte_available = true`
+  - `config_device_vt_available = true`
+  - `config_device_wfc_ims_available = true`
+  - `config_dynamic_bind_ims = true`
+- **UI & Display Adaptations:**
+  - `config_showNavigationBar = false` (Disables software navigation bar to reclaim screen real-estate for the physical keypad)
+  - `navigation_bar_height = 0dp`
+  - `status_bar_height_portrait = 20dp` (Ultra-compact status bar for 2.8" 480x640 display)
+- **Audio Steps:**
+  - `config_audio_vol_steps_call = 25` (Granular call speaker control)
+  - `config_audio_vol_steps_music = 30` (Granular media control)
 
-3. **Physical Keypad & D-Pad Navigation:**
-   - Enables high-visibility focus highlight (`config_defaultFocusHighlightEnabled = true`) for intuitive navigation across textboxes, lists, and toggles using the physical directional D-pad.
-   - Notifies Android InputMethodManager that a permanent hardware keyboard and menu keys are present (`config_hasPermanentMenuKey = true`, `config_hasKeyboard = true`).
-   - Enables native physical keypress audio click feedback (`config_sendAudioWhenHardwareKeyboardUsed = true`).
+### B. SystemUI Overlay (`me.phh.treble.overlay.cats22flip.systemui`)
+- **Target:** `com.android.systemui`
+- **Quick Settings Grid Optimization:**
+  - `quick_settings_num_columns = 2`
+  - `quick_settings_max_rows = 2` (2x2 grid per page, preventing notification cutoff)
+  - `quick_settings_paginated_grid_num_rows = 2`
+  - `quick_qs_panel_max_rows = 1` (Collapsed shade shows 1 row of 2 tiles)
+  - `quick_qs_panel_max_tiles = 2`
+- **QS Tile Dimensions:**
+  - `qs_tile_height = 50dp` (Sleek, low-profile pill design down from stock 80dp)
+  - `qs_tile_padding = 6dp`
+  - `qs_tile_margin_horizontal = 4dp`
+  - `qs_tile_margin_vertical = 4dp`
+  - `qs_tile_text_size = 12sp`
+  - `qs_tile_secondary_text_size = 10sp`
 
-4. **Flip / Lid & Hardware In-Call Button Behavior:**
-   - Configures Hall sensor lid sleep/wake (`config_lidControlsSleep = 1`).
-   - Programs hardware End Call button (☎ / ⏻) to immediately hang up calls (`config_inCallPowerBehavior = 2`, `config_endcallBehavior = true`).
+---
 
-## Building
+## 2. Building
 
+Run the automated build script:
 ```bash
-bash build.sh
+./build.sh
 ```
 
-Outputs the signed overlay APK: `treble-overlay-cat-s22-flip.apk`
+Outputs:
+- `treble-overlay-cat-s22-flip.apk`
+- `treble-overlay-cat-s22-flip-systemui.apk`
 
-## Installation
+---
 
-### Method 1: System Image Integration (Permanent Across Factory Resets)
-Place the APK directly in your GSI system partition:
+## 3. Installation
+
+Copy the APKs to `/system/product/overlay/` with permissions `0644`:
 ```bash
-/system/product/overlay/treble-overlay-cat-s22-flip.apk
-```
-Set permissions to `0644` (`chmod 644`) and SELinux label `u:object_r:system_file:s0`.
-
-### Method 2: Live Installation via ADB
-```bash
-adb install -r treble-overlay-cat-s22-flip.apk
-adb shell cmd overlay enable --user 0 me.phh.treble.overlay.cats22flip
+cp treble-overlay-cat-s22-flip*.apk /system/product/overlay/
+chmod 644 /system/product/overlay/treble-overlay-cat-s22-flip*.apk
+chcon u:object_r:system_file:s0 /system/product/overlay/treble-overlay-cat-s22-flip*.apk
 ```

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Quick Settings Layout Configuration for Cat S22 Flip (2.8" 480x640) -->
+    <!-- Limit QS grid to 2 columns and 2 rows so notifications and sliders are not obscured -->
+    <integer name="quick_settings_num_columns">2</integer>
+    <integer name="quick_settings_max_rows">2</integer>
+    <integer name="quick_settings_paginated_grid_num_rows">2</integer>
+
+    <!-- Collapsed Quick QS header bar: 1 row of 2 tiles -->
+    <integer name="quick_qs_panel_max_rows">1</integer>
+    <integer name="quick_qs_paginated_grid_num_rows">1</integer>
+    <integer name="quick_qs_panel_max_tiles">2</integer>
+
+    <!-- Sleek compact tile dimensions (down from stock 80dp) -->
+    <dimen name="qs_tile_height">50dp</dimen>
+    <dimen name="qs_tile_margin_horizontal">4dp</dimen>
+    <dimen name="qs_tile_margin_vertical">4dp</dimen>
+    <dimen name="qs_tile_margin_top_bottom">2dp</dimen>
+    <dimen name="qs_tile_padding">6dp</dimen>
+    <dimen name="qs_tile_text_size">12sp</dimen>
+    <dimen name="qs_tile_secondary_text_size">10sp</dimen>
+</resources>
