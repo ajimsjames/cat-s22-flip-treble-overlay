@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- VoltageOS Maintainer & Build Attribution for Cat S22 Flip -->
-    <string name="voltage_maintainer">GSI modded for CAT S22 FLIP by ajugeorge</string>
+    <!-- Displayed as: "GSI modded for CAT S22 FLIP by ajugeorge" -->
+    <string name="voltage_maintainer">ajugeorge</string>
 </resources>
