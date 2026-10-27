@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Hardware In-Call Power Button Behavior:
+         0 = Nothing
+         1 = Turn off display
+         2 = Hang up / End call (Red End Call button on Cat S22 Flip) -->
+    <integer name="config_inCallPowerBehavior">2</integer>
+    <bool name="config_endcallBehavior">true</bool>
+
+    <!-- Flip / Lid Behavior:
+         0 = Nothing
+         1 = Sleep / Screen off when closed
+         2 = Lock device when closed -->
+    <integer name="config_lidKeyboardAccessibility">0</integer>
+    <integer name="config_lidNavigationAccessibility">0</integer>
+    <integer name="config_lidOpenRotation">-1</integer>
+    <integer name="config_lidControlsSleep">1</integer>
+    <integer name="config_lidControlsScreenOff">1</integer>
+
+    <!-- Navigation Bar:
+         Cat S22 Flip has physical D-pad and Back/Home/Recent keys.
+         Disable software on-screen navigation bar. -->
+    <bool name="config_showNavigationBar">false</bool>
+
+    <!-- Keypad & Backlight -->
+    <bool name="config_hasKeyboard">true</bool>
+    <integer name="config_keyboardType">1</integer>
+
+    <!-- Automatic Brightness -->
+    <bool name="config_automatic_brightness_available">false</bool>
+
+    <!-- Rounded Corners / Cutout -->
+    <dimen name="rounded_corner_radius">0dp</dimen>
+    <dimen name="rounded_corner_radius_top">0dp</dimen>
+    <dimen name="rounded_corner_radius_bottom">0dp</dimen>
+    <dimen name="status_bar_height_portrait">24dp</dimen>
+
+    <!-- Force 60Hz display refresh rate -->
+    <integer name="config_defaultRefreshRate">60</integer>
+    <integer name="config_defaultPeakRefreshRate">60</integer>
+</resources>
