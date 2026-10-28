@@ -14,8 +14,8 @@
     <integer name="config_lidKeyboardAccessibility">0</integer>
     <integer name="config_lidNavigationAccessibility">0</integer>
     <integer name="config_lidOpenRotation">-1</integer>
-    <integer name="config_lidControlsSleep">1</integer>
-    <integer name="config_lidControlsScreenOff">1</integer>
+    <integer name="config_lidControlsSleep">0</integer>
+    <integer name="config_lidControlsScreenOff">0</integer>
 
     <!-- Navigation Bar:
          Cat S22 Flip has physical D-pad and Back/Home/Recent keys.
